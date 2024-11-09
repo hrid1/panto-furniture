@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaBars, FaShoppingBag, FaTimes } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
@@ -35,8 +35,36 @@ const Navbars = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
+  // changing color or the navbar
+
+  const [isScroll, setIsScroll] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScroll(true);
+      } else {
+        setIsScroll(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  console.log(isScroll);
+
+  //
+
   return (
-    <div className=" absolute z-50 w-full text-white">
+    <div
+      className={`fixed top-0 left-0 right-0  z-50 w-full  transition-all duration-300 ease-in-out ${
+        isScroll ? "bg-white text-black" : "text-white"
+      } `}
+    >
       <header className="max-w-screen-2xl container mx-auto flex justify-between items-center py-6 px-4">
         <section>
           <h2 className="font-bold text-xl italic opacity-80">Panto</h2>
