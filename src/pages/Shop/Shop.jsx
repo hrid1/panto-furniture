@@ -1,6 +1,8 @@
 import { useLoaderData } from "react-router-dom";
 import Products from "../../components/Products";
 import { useState } from "react";
+import Experiences from "../../components/Experiences";
+import Materials from "../../components/Materials";
 
 const Shop = () => {
  
@@ -17,7 +19,10 @@ const Shop = () => {
       {/* Proudcts */}
       <Products headline={"Whats Your Choice"}></Products>
 
-      {/*  */}
+      {/* experience section */}
+
+      <Experiences></Experiences>
+      <Materials></Materials>
     </div>
   );
 };
