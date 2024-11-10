@@ -1,7 +1,7 @@
 import { FiPlus } from "react-icons/fi";
 import { getImgUrl } from "../utils/getImageURL";
 import Rating from "./Rating";
-import { FaHeart, FaRegHeart } from "react-icons/fa";
+import {  FaRegHeart } from "react-icons/fa";
 
 const ProductCard = ({ product }) => {
   return (

@@ -8,9 +8,9 @@ const Rating = ({ rating }) => {
       {Array.from({ length: totalScore }, (_, index) => {
         const starIndex = index + 1;
         return starIndex <= rating ? (
-          <AiFillStar className="text-yellow-500" />
+          <AiFillStar key={index} className="text-yellow-500" />
         ) : (
-          <AiOutlineStar className="text-gray-400" />
+          <AiOutlineStar key={index} className="text-gray-400" />
         );
       })}
     </div>
