@@ -3,6 +3,7 @@ import Products from "../../components/Products";
 import { useState } from "react";
 import Experiences from "../../components/Experiences";
 import Materials from "../../components/Materials";
+import Testimonials from "../../components/Testimonials";
 
 const Shop = () => {
  
@@ -19,10 +20,13 @@ const Shop = () => {
       {/* Proudcts */}
       <Products headline={"Whats Your Choice"}></Products>
 
-      {/* experience section */}
+      {/* experience and Materials fsection */}
 
       <Experiences></Experiences>
       <Materials></Materials>
+
+      {/* testmonials */}
+      <Testimonials></Testimonials>
     </div>
   );
 };
