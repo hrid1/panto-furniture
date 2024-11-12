@@ -59,14 +59,14 @@ const Testimonials = () => {
           >
             {reviews.map((review, idx) => (
               <SwiperSlide
-                className=" bg-no-repeat bg-cover bg-center rounded-lg"
+                className="bg-no-repeat bg-cover bg-center rounded-lg"
                 key={idx}
-                style={{ backgroundImage: `url(${review.coverImg})` }}
+                style={{ backgroundImage: `url(${review.coverImg})`}}
               >
-                <div className="md:h-[547px] mb-4">
-                  <div className="bg-white md:w-4/5 relative top-1/2 mx-auto rounded-xl h-1/3 text-center">
+                <div className="md:h-[547px]">
+                  <div className="bg-white md:w-4/5 relative top-36 mx-auto rounded-xl h-1/3 text-center ">
                     <img
-                      className=" absolute -top-6 left-1/2 -translate-x-1/2 p-1 bg-white  rounded-full "
+                      className="size-20 absolute -top-12 left-1/2 -translate-x-1/2 p-1 bg-white  rounded-full "
                       src={review.image}
                       alt=""
                     />
