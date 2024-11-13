@@ -5,6 +5,9 @@ import About from "../../pages/About/About";
 import { createBrowserRouter } from "react-router-dom";
 import Contact from "../../pages/Contact/Contact";
 import Shop from "../../pages/Shop/Shop";
+import Login from "../../pages/Login/Login";
+import Register from "../../pages/Register/Register";
+import Auth from "../../pages/Auth/Auth";
 
 export const router = createBrowserRouter([
   {
@@ -28,8 +31,20 @@ export const router = createBrowserRouter([
         element: <Shop />,
         loader: () => fetch("../products.json"),
       },
-
-     
+    ],
+  },
+  {
+    path: "/auth",
+    element: <Auth />,
+    children: [
+      {
+        path: "/auth",
+        element: <Login />,
+      },
+      {
+        path: "/auth/register",
+        element: <Register />,
+      },
     ],
   },
 ]);

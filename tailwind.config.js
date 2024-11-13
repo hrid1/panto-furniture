@@ -11,6 +11,8 @@ export default {
       },
       backgroundImage: {
         banner: "url('./src/assets/banner.png')",
+        fcover: "url('./src/assets/fcover.jpg')",
+        ahero: "url('./src/assets/about-background.jpg')",
       },
       fontFamily: {
         popins: ["Poppins", "sans-serif"],

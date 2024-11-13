@@ -2,8 +2,15 @@ import { FiPlus } from "react-icons/fi";
 import { getImgUrl } from "../utils/getImageURL";
 import Rating from "./Rating";
 import {  FaRegHeart } from "react-icons/fa";
+import { useContext } from "react";
+import { CartContext } from "../provider/CartProvider";
 
 const ProductCard = ({ product }) => {
+
+  const {handleToCart}= useContext(CartContext);
+
+
+
   return (
     <div>
       <div className="bg-gray-100 rounded-md">
@@ -26,9 +33,12 @@ const ProductCard = ({ product }) => {
           </h3>
 
           <div className=" space-x-2.5">
-            <button className="bg-secondary text-white p-2 rounded-full hover:bg-opacity-80">
+            <button onClick={handleToCart} className="bg-secondary text-white p-2 rounded-full hover:bg-opacity-80">
               <FiPlus />
             </button>
+
+          
+          
           </div>
         </div>
       </div>

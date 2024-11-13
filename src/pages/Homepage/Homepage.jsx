@@ -6,8 +6,6 @@ const Homepage = () => {
         <div>
             <Banner/>
             <WhyChoose/>
-            
-            <h2>This si HOme page</h2>
         </div>
     );
 };

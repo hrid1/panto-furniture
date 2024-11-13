@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FaBars, FaShoppingBag, FaTimes } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { CartContext } from "../provider/CartProvider";
 
 // declar navitems
 const navItems = [
@@ -55,9 +56,8 @@ const Navbars = () => {
     };
   }, []);
 
-  console.log(isScroll);
-
-  //
+  // handle cart
+  const { carts } = useContext(CartContext);
 
   return (
     <div
@@ -101,11 +101,19 @@ const Navbars = () => {
         </div>
 
         {/* shoping cart */}
-        <section className="hidden md:block cursor-pointer relative">
-          <FaShoppingBag className="text-xl" />
-          <sup className=" absolute -top-2 -right-2.5 bg-primary h-4 w-4 rounded-full flex items-center justify-center text-white text-xs">
-            0
-          </sup>
+        <section className="flex items-center gap-5">
+          <div className="hidden md:block cursor-pointer relative">
+            <FaShoppingBag className="text-xl" />
+            <sup className=" absolute -top-2 -right-2.5 bg-primary h-4 w-4 rounded-full flex items-center justify-center text-white text-xs">
+              {carts}
+            </sup>
+          </div>
+          {/* login button */}
+          <Link to='/auth'>
+            <button className="px-3 py-1.5 border font-medium bg-primary rounded-md">
+              Login
+            </button>
+          </Link>
         </section>
       </header>
     </div>

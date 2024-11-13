@@ -2,7 +2,7 @@ import Button from "../../components/Button";
 
 const WhyChoose = () => {
   return (
-    <section className="section-container ">
+    <section className="section-container MX-AU">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 my-24 gap-8 md:gap12 text-left items-center ">
         <div className="my-auto">
           <h2 className="text-4xl font-bold ">
