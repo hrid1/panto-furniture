@@ -6,6 +6,7 @@ import {
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import { auth } from "../config/firebase";
+import Swal from "sweetalert2";
 
 export const AuthContext = createContext(null);
 
@@ -39,6 +40,19 @@ const AuthProvider = ({ children }) => {
 
   // here all auth info
 
+  //   toast info
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    },
+  });
+
   const authInfo = {
     createUser,
     loginUser,
@@ -46,6 +60,7 @@ const AuthProvider = ({ children }) => {
     user,
     loading,
     setLoading,
+    Toast
   };
 
   return (

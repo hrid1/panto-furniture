@@ -1,7 +1,17 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Login = () => {
+  // login function
+  const { loginUser, Toast } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  // handle error and success
+  const [error, setError] = useState("");
+
+  // handle form data
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -15,11 +25,29 @@ const Login = () => {
     }));
   };
 
-
-
+  // handle form submit
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+    setError("");
+    loginUser(formData.email, formData.password)
+      .then((result) => {
+        Toast.fire({
+          icon: "success",
+          title: "Signed in successfully",
+          timerProgressBar: false,
+        });
+        // navigate upter login
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((error) => {
+        setError(error.message);
+        Toast.fire({
+          icon: "error",
+          position: "top",
+          title: "User Login Failed !",
+          timerProgressBar: false,
+        });
+      });
   };
 
   return (
@@ -44,6 +72,7 @@ const Login = () => {
             placeholder="Enter your email"
             value={formData.email}
             onChange={handleChange}
+            required
           />
         </div>
         <div>
@@ -58,8 +87,11 @@ const Login = () => {
             placeholder="Enter your password"
             value={formData.password}
             onChange={handleChange}
+            required
           />
         </div>
+
+        <div>{error && <p className="text-red-600">{error}</p>}</div>
 
         <div className="flex items-center justify-center">
           <button
