@@ -26,7 +26,7 @@ const Login = () => {
     <div className="flex items-center justify-center  ">
       <form
         onSubmit={handleSubmit}
-        className="w-[420px] backdrop-blur-sm px-8 py-4 rounded-lg space-y-4 mb-4 border"
+        className="w-[420px] backdrop-blur-sm px-8 py-4 rounded-lg space-y-4 mb-4 bg-black bg-opacity-10"
       >
         <h2 className="text-2xl font-bold text-center my-2">
           Login Your Account
